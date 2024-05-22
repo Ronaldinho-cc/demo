@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti <3</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: #dc3545;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+        .envelope h3 {
+            color: #ffffff;
+            margin: 0;
+        }
+        .envelope.open {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        .card-content {
+            display: none;
+            max-width: 500px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .card-content img {
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        .card-content h2 {
+            color: #dc3545;
+            font-family: 'Cursive', sans-serif;
+        }
+        .card-content.show {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" id="envelope">
+        <h3>Haz click aquí</h3>
+    </div>
+
+    <div class="card-content" id="cardContent">
+        <h2>Ten para ti, que te esfuerzas cada día. Sé que podrás con todas tus metas y sueños :3</h2>
+        <img src="https://www.kukyflor.com/6629-large_default/ramo-de-30-rosas-rojas-premium.jpg" class="img-fluid" width="300px" alt="Ramo de Rosas">
+    </div>
+
+    <script>
+        document.getElementById('envelope').addEventListener('click', function() {
+            this.classList.add('open');
+            setTimeout(() => {
+                this.style.display = 'none';
+                document.getElementById('cardContent').classList.add('show');
+            }, 600); // Espera a que la animación del sobre termine antes de mostrar la tarjeta
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
